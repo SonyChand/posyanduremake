@@ -1,0 +1,11 @@
+Login Admin
+Username : admin
+Password : 123	
+
+Login Kader 
+Kode Posyandu : Dahlia1
+Password : 12345 (dari data kader)
+
+Login Orang Tua 
+ID KMS : 00001
+Password : 12345

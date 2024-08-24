@@ -38,21 +38,18 @@ class Admin extends CI_Controller
     public function DataPetugas()
     {
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[dataakun.email]');
-        
-        if( $this->form_validation->run() == false){
 
-        $data['title'] = 'Data Kader';
-        $data['user'] = $this->db->get_where('dataakun', ['nik' => $this->session->userdata('nik')])->row_array();
-        $data['get_posyandu'] = $this->DataAkun->get_posyandu();
-        $data['getKodePosyandu'] = $this->db->get('dataposyandu')->result_array();
-        $data['dataAkun'] = $this->DataAkun->printAkun();
-        $this->load->view('Admin/template/header', $data);
-        $this->load->view('Admin/dataPetugas_view', $data);
-        $this->load->view('Admin/template/footer');
+        if ($this->form_validation->run() == false) {
 
+            $data['title'] = 'Data Kader';
+            $data['user'] = $this->db->get_where('dataakun', ['nik' => $this->session->userdata('nik')])->row_array();
+            $data['get_posyandu'] = $this->DataAkun->get_posyandu();
+            $data['getKodePosyandu'] = $this->db->get('dataposyandu')->result_array();
+            $data['dataAkun'] = $this->DataAkun->printAkun();
+            $this->load->view('Admin/template/header', $data);
+            $this->load->view('Admin/dataPetugas_view', $data);
+            $this->load->view('Admin/template/footer');
         }
-
-        
     }
 
     public function DataPetugas_edit($id)
@@ -73,13 +70,13 @@ class Admin extends CI_Controller
     public function TambahDataPetugas()
     {
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[dataakun.email]');
-        
-        if( $this->form_validation->run() == false){
+
+        if ($this->form_validation->run() == false) {
             $this->DataPetugas();
         } else {
-        $this->DataAkun->saveData();
-        $this->session->set_flashdata('admin', 'Success as a admin.');
-        redirect('Admin/DataPetugas');
+            $this->DataAkun->saveData();
+            $this->session->set_flashdata('admin', 'Success as a admin.');
+            redirect('Admin/DataPetugas');
         }
     }
 

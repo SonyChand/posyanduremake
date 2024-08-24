@@ -241,13 +241,12 @@ class User extends CI_Controller
     {
 
         $getKode = $this->db->get_where('dataanak', ['nik' => $this->session->userdata('nik')])->row_array();
-        $spesifikNik = $getKode['nik'];
         $spesifikIdkms = $getKode['id_kms'];
 
         $x = $this->DataKMS->get_dataUser($spesifikIdkms)->result();
         $data['avgKMS'] = json_encode($x);
 
-        $data['getImunisasiUser'] = $this->DataImunisasi->getImunisasiUser($spesifikNik);
+        $data['getImunisasiUser'] = $this->DataImunisasi->getImunisasiUser($spesifikIdkms);
         $data['getKmsUser'] = $this->DataImunisasi->getKmsUser($spesifikIdkms);
         $data['user'] = $this->db->get_where('dataAnak', ['nik' => $this->session->userdata('nik')])->row_array();
 
@@ -281,13 +280,12 @@ class User extends CI_Controller
     {
 
         $getKode = $this->db->get_where('dataanak', ['nik' => $this->session->userdata('nik')])->row_array();
-        $spesifikNik = $getKode['nik'];
         $spesifikIdkms = $getKode['id_kms'];
 
         $x = $this->DataKMS->get_dataUser($spesifikIdkms)->result();
         $data['avgKMS'] = json_encode($x);
 
-        $data['getImunisasiUser'] = $this->DataImunisasi->getImunisasiUser($spesifikNik);
+        $data['getImunisasiUser'] = $this->DataImunisasi->getImunisasiUser($spesifikIdkms);
         $data['getKmsUser'] = $this->DataImunisasi->getKmsUser($spesifikIdkms);
         $data['user'] = $this->db->get_where('dataAnak', ['nik' => $this->session->userdata('nik')])->row_array();
 

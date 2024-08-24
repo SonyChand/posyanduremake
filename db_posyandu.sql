@@ -69,8 +69,8 @@ CREATE TABLE `dataakun` (
   `tempat_lahir` varchar(50) NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `image` varchar(80) NOT NULL,
-  `created_at` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `dataakun`
@@ -106,8 +106,8 @@ CREATE TABLE `dataanak` (
   `nik_wali` varchar(50) NOT NULL,
   `nama_wali` varchar(50) NOT NULL,
   `status` char(1) NOT NULL,
-  `created_at` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `dataanak`
@@ -134,8 +134,8 @@ CREATE TABLE `dataibu` (
   `golongan_darah` varchar(3) NOT NULL,
   `alamat` varchar(150) NOT NULL,
   `no_telepon` varchar(30) NOT NULL,
-  `created_at` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `dataibu`
@@ -163,7 +163,7 @@ CREATE TABLE `dataimunisasi` (
   `bulan` varchar(20) DEFAULT NULL,
   `jenis_imunisasi` varchar(50) NOT NULL,
   `status` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `dataimunisasi`
@@ -233,7 +233,7 @@ CREATE TABLE `datakms` (
   `berat_badan` double NOT NULL,
   `umur` varchar(10) NOT NULL,
   `status_gizi` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `datakms`
@@ -267,7 +267,7 @@ CREATE TABLE `dataposyandu` (
   `lng` varchar(128) NOT NULL,
   `lat` varchar(128) NOT NULL,
   `created_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `dataposyandu`

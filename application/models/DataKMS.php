@@ -14,7 +14,6 @@ class DataKMS extends CI_Model
 
     function get_dataUser($spesifikIdkms)
     {
-        $this->db->select('bulan,umur,berat_badan');
         $this->db->where('id_kms', $spesifikIdkms);
         $this->db->order_by('tanggal_periksa', 'ASC');
         $result = $this->db->get('dataKMS');

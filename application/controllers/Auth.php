@@ -83,6 +83,21 @@ class Auth extends CI_Controller
 		}
 	}
 
+	public function postLogin4()
+	{
+		if ($this->input->post()) {
+			if ($this->DataAkun->doLogin4() == '1') {
+				$this->session->set_flashdata('user', 'Success as a user.');
+				redirect('user');
+			} else {
+
+				$this->session->set_tempdata('err', 'NIK / Password Salah....!', 3);
+				// $this->session->set_flashdata('error', 'Kode Posyandu / Password Salah....!');
+				redirect('auth/loginUser');
+			}
+		}
+	}
+
 	public function logout()
 	{
 

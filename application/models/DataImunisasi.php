@@ -53,11 +53,11 @@ class DataImunisasi extends CI_Model
         return $query->result_array();
     }
 
-    public function getImunisasiUser($spesifikNik)
+    public function getImunisasiUser($idKms)
     {
         $query = $this->db->query(
             "SELECT * 
-            FROM dataImunisasi WHERE nik='$spesifikNik' ORDER BY id_imunisasi DESC"
+            FROM dataImunisasi WHERE id_kms='$idKms' ORDER BY id_imunisasi DESC"
         );
 
         return $query->result_array();

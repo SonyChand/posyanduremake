@@ -5,9 +5,9 @@
 
                 <div class="block-7">
                     <h3 class="footer-heading mb-4">About <strong class="text-primary"><?= $posyandu['nama_posyandu']; ?></strong></h3>
-		    
-                    <p><?= $posyandu['keterangan']; ?> Posyandu Latulip berada di wilayah Desa Pananjung Kecamatan Cangkuang Kabupaten Bandung. Posyandu latulip didirikan pada tahun 2021 setelah ditentukan nya kepungurusan RW. 
-Posyandu diadakan setiap satu bulan sekali. Posyandu latulip ini memiliki jumlah kader sebanyak 10 Orang. </p>
+
+                    <p><?= $posyandu['keterangan']; ?> Posyandu Latulip berada di wilayah Desa Pananjung Kecamatan Cangkuang Kabupaten Bandung. Posyandu latulip didirikan pada tahun 2021 setelah ditentukan nya kepungurusan RW.
+                        Posyandu diadakan setiap satu bulan sekali. Posyandu latulip ini memiliki jumlah kader sebanyak 10 Orang. </p>
                 </div>
 
             </div>
@@ -19,7 +19,7 @@ Posyandu diadakan setiap satu bulan sekali. Posyandu latulip ini memiliki jumlah
                 <div class="block-5 mb-5">
                     <h3 class="footer-heading mb-4">Kontak</h3>
 
-		    <div class="footer-heading mb-4"> 08211976060 (Ela Nurlaela)</div>
+                    <div class="footer-heading mb-4"> 08211976060 (Ela Nurlaela)</div>
 
                     <ul class="list-unstyled">
 

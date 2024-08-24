@@ -25,32 +25,35 @@
             </thead>
             <tbody>
               <?php $no = 1;
-              foreach ($getKmsUser as $value) : ?>
-                <tr>
-                  <th scope="row"><?= $no++; ?></th>
-                  <td><?= $value['id_kms']; ?></td>
-                  <td><?= $value['nik']; ?></td>
-                  <td><?= $value['nama'] ?></td>
-                  <td><?= $value['jk'] ?></td>
-                  <td><?= format_indo($value['tanggal_periksa']) ?></td>
-                  <td><?= $value['umur'] ?> Bulan</td>
-                  <td><?= $value['berat_badan'] ?> kg</td>
-                  <td><?= $value['tinggi_badan'] ?> cm</td>
-                  <td><?= $value['status_gizi'] ?></td>
-                  <td>
-                    <?php $status_gizi = str_replace(" ", "_", $value['status_gizi']); ?>
-                    <?php if ($value['status_gizi'] == 'Berat badan kurang') { ?>
-                      <a href="<?= base_url('user/lanjutan/' . $status_gizi) ?>" class="badge badge-warning">Panduan Kesehatan Anak</a>
-                    <?php } elseif ($value['status_gizi'] == 'Berat badan lebih') { ?>
-                      <a href="<?= base_url('user/lanjutan/' . $status_gizi) ?>" class="badge badge-info">Panduan Kesehatan Anak</a>
-                    <?php } elseif ($value['status_gizi'] == 'Berat badan sangat kurang') { ?>
-                      <a href="<?= base_url('user/lanjutan/' . $status_gizi) ?>" class="badge badge-danger">Panduan Kesehatan Anak</a>
-                    <?php } else { ?>
-                      <a href="<?= base_url('user/lanjutan/' . $status_gizi) ?>" class="badge badge-success">Panduan Kesehatan Anak</a>
-                    <?php } ?>
+              foreach ($imunisasi as $value) : ?>
+                <?php $kms = $this->db->get_where('datakms', ['nik_anak' => $value['nik']])->result_array(); ?>
+                <?php foreach ($kms as $row) : ?>
+                  <tr>
+                    <th scope="row"><?= $no++; ?></th>
+                    <td><?= $row['id_kms']; ?></td>
+                    <td><?= $value['nik']; ?></td>
+                    <td><?= $value['nama'] ?></td>
+                    <td><?= $value['jk'] ?></td>
+                    <td><?= format_indo($row['tanggal_periksa']) ?></td>
+                    <td><?= $row['umur'] ?> Bulan</td>
+                    <td><?= $row['berat_badan'] ?> kg</td>
+                    <td><?= $row['tinggi_badan'] ?> cm</td>
+                    <td><?= $row['status_gizi'] ?></td>
+                    <td>
+                      <?php $status_gizi = str_replace(" ", "_", $row['status_gizi']); ?>
+                      <?php if ($row['status_gizi'] == 'Berat badan kurang') { ?>
+                        <a href="<?= base_url('user/lanjutan/' . $status_gizi) ?>" class="badge badge-warning">Panduan Kesehatan Anak</a>
+                      <?php } elseif ($row['status_gizi'] == 'Berat badan lebih') { ?>
+                        <a href="<?= base_url('user/lanjutan/' . $status_gizi) ?>" class="badge badge-info">Panduan Kesehatan Anak</a>
+                      <?php } elseif ($row['status_gizi'] == 'Berat badan sangat kurang') { ?>
+                        <a href="<?= base_url('user/lanjutan/' . $status_gizi) ?>" class="badge badge-danger">Panduan Kesehatan Anak</a>
+                      <?php } else { ?>
+                        <a href="<?= base_url('user/lanjutan/' . $status_gizi) ?>" class="badge badge-success">Panduan Kesehatan Anak</a>
+                      <?php } ?>
 
-                  </td>
-                </tr>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
               <?php endforeach; ?>
             </tbody>
           </table>

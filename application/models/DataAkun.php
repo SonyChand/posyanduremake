@@ -248,7 +248,7 @@ class DataAkun extends CI_Model
             // jika password benar dan dia admin
             if ($isPetugas) {
                 // login sukses yay!
-                $this->session->set_userdata('nik', $user->nik);
+                $this->session->set_userdata('nik', $user->nik_wali);
                 return $isPetugas;
             }
         }

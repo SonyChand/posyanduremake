@@ -8,7 +8,7 @@
                     </div>
                 </div>
                 <div class="card-body" style="margin-top: -30px; height: 370px;">
-                    <div id="graph2"></div>
+                    <div id="chart" class="w-75"></div>
                 </div>
             </div>
         </div>
@@ -99,7 +99,9 @@
                                         <td><?= $value['nik'] ?></td>
                                         <td><?= $value['nama'] ?></td>
                                         <td><?= $value['jk'] ?></td>
-                                        <td><?= format_indo($value['tanggal_periksa']) ?></td>
+                                        <td>
+                                            <!-- <?= format_indo($value['tanggal_periksa']) ?> -->
+                                        </td>
                                         <td><?= $value['umur'] ?> Bulan</td>
                                         <td><?= $value['berat_badan'] ?> kg</td>
                                         <td><?= $value['tinggi_badan'] ?> cm</td>
@@ -193,3 +195,29 @@
         </div>
     </div>
 </div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<script>
+    var options = {
+        series: [44, 55, 41, 17, 15],
+        chart: {
+            type: 'donut',
+        },
+        responsive: [{
+            breakpoint: 480,
+            options: {
+                chart: {
+                    width: 200
+                },
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }]
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+</script>

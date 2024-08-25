@@ -13,7 +13,7 @@ $abc = 1;
           <h2>GRAFIK <strong class="text-primary">PERKEMBANGAN ANAK</strong></h2>
         </div>
         <?php foreach ($anak as $row): ?>
-          <div class="card card-profile text-black pt-5">
+          <div class="card card-profile text-black pt-5 pb-5 px-5">
             <div class="col-4">
               <div class="list-group" id="list-tab" role="tablist">
                 <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Data PA <?= $row->nama ?></a>

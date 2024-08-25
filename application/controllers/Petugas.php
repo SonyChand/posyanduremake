@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Petugas extends CI_Controller
 {
-     public function __construct()
+    public function __construct()
     {
         parent::__construct();
         $this->load->library("session");
@@ -194,8 +194,8 @@ class Petugas extends CI_Controller
         $data['title'] = 'Data Perkembangan Anak';
         // $x = $this->DataKMS->printAVGKMS();
         // $data['avgKMS'] = json_encode($x);
-        $x = $this->DataImunisasi->countJumlahKMS();
-        $data['jenisKMS'] = json_encode($x);
+        // $x = $this->DataImunisasi->countJumlahKMS();
+        // $data['jenisKMS'] = json_encode($x);
         $data['countbbsk'] = $this->DataKMS->countbbsk($spesifik_kode);
         $data['countbbk'] = $this->DataKMS->countbbk($spesifik_kode);
         $data['countbbn'] = $this->DataKMS->countbbn($spesifik_kode);

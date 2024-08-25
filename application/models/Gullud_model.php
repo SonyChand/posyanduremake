@@ -4,11 +4,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Gullud_model extends CI_Model
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     public function predict($tinggi_badan, $berat_badan, $bulan)
     {
         // Load data dari tabel datakms
@@ -26,22 +21,22 @@ class Gullud_model extends CI_Model
         }
 
         // Calculate coefficients using least squares
-        $a = 0;
+        // $a = 0;
         $b = 0;
         $c = 0;
 
         foreach ($data as $row) {
-            $a += $row['berat_badan'];
+            // $a += $row['berat_badan'];
             $b += $row['tinggi_badan'] * $row['berat_badan'];
             $c += $row['berat_badan'] * $row['berat_badan'];
         }
 
-        $a /= count($data);
+        // $a /= count($data);
         $b /= count($data);
         $c /= count($data);
 
         // Prediksi berat badan optimal
-        $berat_badan_optimal = $a + $b * ($tinggi_badan - $mean_height) / $std_height + $c * ($berat_badan - $mean_weight) / $std_weight;
+        // $berat_badan_optimal = $a + $b * ($tinggi_badan - $mean_height) / $std_height + $c * ($berat_badan - $mean_weight) / $std_weight;
 
         // Prediksi tinggi badan dan berat badan di masa depan
         $tinggi_badan_prediksi = $tinggi_badan + ($bulan * $b);

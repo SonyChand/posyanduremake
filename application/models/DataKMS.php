@@ -1,6 +1,11 @@
 <?php
 class DataKMS extends CI_Model
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Gullud_model', 'gullud');
+    }
 
     //get data from database
     function get_data($nik)
@@ -2351,6 +2356,8 @@ class DataKMS extends CI_Model
             $status_gizi = 'Tidak Masuk Kategori';
         }
 
+        $beratBadanOptimal = $this->gullud->predict($tinggi_badan, $bb1, date('n', strtotime($tanggal_periksa)));
+
         $data_KMS = [
             'id_kms' => $id_kms,
             'kode_posyandu' => $kode_posyandu,
@@ -2361,7 +2368,9 @@ class DataKMS extends CI_Model
             'tahun' => $tahun_periksa,
             'tinggi_badan' => $tinggi_badan,
             'status_gizi' => $status_gizi,
-            'berat_badan' =>  number_format($berat_badan, 2)
+            'berat_badan' =>  number_format($berat_badan, 2),
+            'tb_optimal' =>  round($beratBadanOptimal['tinggi_badan_prediksi']),
+            'bb_optimal' =>  round($beratBadanOptimal['berat_badan_prediksi'])
         ];
         $this->db->insert('dataKMS', $data_KMS);
     }

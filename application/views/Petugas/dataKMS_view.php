@@ -1,26 +1,26 @@
 <div class="content">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="card card-profile text-black" style="width: 700px">
                 <div class="col-4">
                     <div class="list-group" id="list-tab" role="tablist">
                         <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Data PA</a>
                     </div>
                 </div>
-                <div class="card-body" style="margin-top: -30px; height: 370px;">
-                    <div id="chart" class="w-75"></div>
+                <div class="card-body" style="margin-top: -30px; height:470px;">
+                    <div class="mt-2" id="chart" class="w-75"></div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card card-profile text-black" style="width: 300px">
-                <div class="col-6">
+        <div class="col-md-12">
+            <div class="card card-profile text-black" style="width: 700px">
+                <div class="col-4">
                     <div class="list-group" id="list-tab" role="tablist">
                         <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Data Customer</a>
                     </div>
                 </div>
-                <div class="card-body" style="margin-top: -55px; height: 370px;">
-                    <div id="graph3"></div>
+                <div class="card-body" style="margin-top: -30px; height: 470px;">
+                    <div class="mt-1" id="chart2" class="w-75"></div>
                 </div>
             </div>
         </div>
@@ -85,6 +85,9 @@
                                     Tinggi Badan
                                 </th>
                                 <th>
+                                    Optimal
+                                </th>
+                                <th>
                                     Status Gizi
                                 </th>
                                 <th>
@@ -105,6 +108,7 @@
                                         <td><?= $value['umur'] ?> Bulan</td>
                                         <td><?= $value['berat_badan'] ?> kg</td>
                                         <td><?= $value['tinggi_badan'] ?> cm</td>
+                                        <td><?= $value['bb_optimal'] ?> kg dan <?= $value['tb_optimal'] ?> cm</td>
                                         <td><?= $value['status_gizi'] ?></td>
                                         <td class>
                                             <!-- <?php if ($value['status_gizi'] != 'Berat badan normal') { ?>
@@ -201,12 +205,13 @@
 
 <script>
     var options = {
-        series: [44, 55, 41, 17, 15],
+        labels: ['Berat Badan Lebih', 'Berat Badan Normal', 'Berat Badan Kurang', 'Berat Badan Sangat Kurang'],
+        series: [<?= $countbbl ?>, <?= $countbbn ?>, <?= $countbbk ?>, <?= $countbbsk ?>],
         chart: {
             type: 'donut',
         },
         responsive: [{
-            breakpoint: 480,
+            breakpoint: 400,
             options: {
                 chart: {
                     width: 200
@@ -220,4 +225,26 @@
 
     var chart = new ApexCharts(document.querySelector("#chart"), options);
     chart.render();
+
+    var options = {
+        labels: ['Jumlah Ibu', 'Jumlah Anak'],
+        series: [<?= $countIbu ?>, <?= $countAnak ?>],
+        chart: {
+            type: 'donut',
+        },
+        responsive: [{
+            breakpoint: 400,
+            options: {
+                chart: {
+                    width: 200
+                },
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }]
+    };
+
+    var chart2 = new ApexCharts(document.querySelector("#chart2"), options);
+    chart2.render();
 </script>

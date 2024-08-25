@@ -13,6 +13,7 @@ class Petugas extends CI_Controller
         $this->load->model('DataImunisasi');
         $this->load->model('DataKMS');
         $this->load->model('DataAkun');
+        $this->load->model('Gullud_model', 'gullud');
     }
     public function index()
     {
